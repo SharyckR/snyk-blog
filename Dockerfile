@@ -1,11 +1,8 @@
 # Use an official Node.js runtime as a parent image
-FROM node:22.1-bookworm-slim
+FROM node:lts-alpine3.20
 
 # Set the working directory in the container
 WORKDIR /usr/src/app
-
-# Install necessary libraries and update existing ones for resolve vulnerabilities
-RUN apt-get update && apt-get install -y zlib1g-dev
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
