@@ -5,10 +5,7 @@ FROM node:22.1-bookworm-slim
 WORKDIR /usr/src/app
 
 # Install necessary libraries and update existing ones for resolve vulnerabilities
-RUN apt-get update && \
-    apt-get install -y zlib1g-dev tar libc6 systemd passwd perl libgcrypt20 libpam0g libncurses5 libncursesw5 gnutls-bin util-linux coreutils gnupg2 apt gcc && \
-    apt-get upgrade -y && \
-    apt-get clean
+RUN apt-get update && apt-get install -y zlib1g-dev
 
 # Copy package.json and package-lock.json to the working directory
 COPY package*.json ./
